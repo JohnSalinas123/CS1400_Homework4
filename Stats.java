@@ -32,7 +32,7 @@ public class Stats {
 
     }
     
-    //toString
+    // toString override
     @Override
     public String toString(){
 
@@ -83,19 +83,37 @@ public class Stats {
         return stamina;
     }
 
+
     // move ammount of strength to intelligence, reducing strength by the same ammount
-    public void moveStrengthToIntelligence(int ammount) {
+    public void moveStrengthToIntelligence(int ammount) throws Exception {
+        strength = strength - ammount;
+        intelligence = intelligence + ammount;
+
+        if (!(strength >= 1 && strength <= 12 && intelligence >= 1 && intelligence <= 12 )) {
+            throw new Exception("IllegalStatValue");
+        }   
+
 
     }
 
     // move ammount of intelligence to stamina, reducing intelligence by the same ammount
-    public void moveIntelligenceToStamina(int ammount) {
+    public void moveIntelligenceToStamina(int ammount) throws Exception {
+        intelligence = intelligence - ammount;
+        stamina = stamina + ammount;
 
+        if (!(intelligence >= 1 && intelligence <= 12 && stamina >= 1 && stamina <= 12)) {
+            throw new Exception("IllegalStatValue");
+        }   
     }
 
     // move ammount of stamina to strength, reducing stamina by the same ammount
-    public void moveStaminaToStrength(int ammount) {
+    public void moveStaminaToStrength(int ammount) throws Exception {
+        stamina = stamina - ammount;
+        strength = strength + ammount;
 
+        if (!(strength >= 1 && strength <= 12 && stamina >= 1 && stamina <= 12)) {
+            throw new Exception("IllegalStatValue");
+        }   
     }
 
 }
