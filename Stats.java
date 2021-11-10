@@ -11,7 +11,7 @@ public class Stats {
     public Stats(int strValue, int intValue, int stamValue) {
         int statSum = strValue + intValue + stamValue;
 
-        if (statSum == 20 && strValue >= 1 && strValue <= 12 && intValue >= 1 && intValue <= 12
+        if (statSum == MAX_STAT_SUM && strValue >= 1 && strValue <= 12 && intValue >= 1 && intValue <= 12
                  && stamValue >= 1 && stamValue <= 12) {
 
             strength = strValue;
@@ -43,6 +43,7 @@ public class Stats {
     }
     
     //equals
+    @Override
     public boolean equals(Object other) {
         
         if (other == null || getClass() != other.getClass()) {
@@ -91,7 +92,7 @@ public class Stats {
 
         if (!(strength >= 1 && strength <= 12 && intelligence >= 1 && intelligence <= 12 )) {
             throw new Exception("IllegalStatValue");
-        }   
+        } 
 
 
     }
