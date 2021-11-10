@@ -41,7 +41,7 @@ public class Player {
             this.status = otherPlayer.getStatus();
             count++;
         } else {
-            throw new Exception("IllegalNullReference");
+            throw new NullPointerException();
         }
         
     }
@@ -53,28 +53,36 @@ public class Player {
                 "Name: " + this.name + "\n" +
                 "Experience: " + this.experience + "\n" +
                 this.stats.toString() + this.status.toString();
-
-                /*
-                "Stats: " + "\n" +
-                "   Strength:       " + this.stats.getStrenth() + "\n" +
-                "   Intelligence:   " + this.stats.getIntelligence() + "\n" +
-                "   Stamina:        " + this.stats.getStamina() + "\n" +
-                "Status: " + "\n" +
-                "   HitPoints:      " + this.status.getHitPoints() + "\n" +
-                "   Hunger:         " + this.status.getHunger() + "\n" +
-                "   Sleepiness:     " + this.status.getSleepiness() + "\n"; 
-
-                */
     }
 
     // equals for the Player class
+    @Override
     public boolean equals(Object other) {
         
+        if (other == null || this.getClass() != other.getClass()) {
+            return false;
+        } {
+
+            Player otherPlayer = (Player)other;
+            if (otherPlayer.getName() == this.name && otherPlayer.getExperience() == this.experience &&
+                otherPlayer.getStats().equals(this.stats) && otherPlayer.getStatus().equals(this.status)) {
+                
+                    return true;
+            }
+
+        }
+
+        return false;
+
     }
 
+    // get number of players created method
+    public static int getNumPlayers() {
+        return count;
+    }
 
     /**
-     * Getter method for the Player class
+     * Getter methods for the Player class
      */
 
     // getter method for name
@@ -99,6 +107,58 @@ public class Player {
         return statusSafe;
     }
 
+    /**
+     * Setter methods for the Player class
+     */
 
+    // setter method for name
+    public void setName(String newName) {
+        this.name = newName;
+    }
+
+    // setter method for experience
+    public void setExperience(int newExp) {
+        this.experience = newExp;
+    }
+
+    // setter method for stats
+    public void setStats(Stats newStats) {
+
+        if (newStats != null) {
+            Stats safeStats = new Stats(newStats);
+            this.stats = safeStats;
+        } else {
+            throw new NullPointerException();
+        }
+
+        
+    }
+
+    // setter method for status
+    public void setStatus(Status newStatus) {
+
+        if (newStatus != null) {
+            Status safeStatus = new Status(newStatus);
+            this.status = safeStatus;
+        } else {
+            throw new NullPointerException();
+        }
+
+        
+    }
+
+    // add method for experience
+    public void addExperience(int addExp) {
+        int expTotal = this.experience + addExp;
+
+        if (expTotal > MAX_EXP) {
+            this.experience = MAX_EXP;
+        } else if (expTotal < 0) {
+            this.experience = 0;
+        } else {
+            this.experience = expTotal;
+        }
+
+    }
     
 }
