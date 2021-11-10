@@ -60,6 +60,7 @@ public class Status {
     }
 
     // equals for Status class
+    @Override
     public boolean equals(Object other) {
 
         if (other == null || this.getClass() != other.getClass()) {
