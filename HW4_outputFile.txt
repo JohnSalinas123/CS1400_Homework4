@@ -1,0 +1,48 @@
+Error was caught: java.lang.IllegalArgumentException
+
+Error was caught java.lang.NullPointerException
+
+ID: 1
+Name: John
+Experience: 500
+Strength: 6
+Intelligence: 6
+Stamina: 8
+Hit Points: 20
+Hunger: 10
+Sleepiness: 10
+
+ID: 2
+Name: Lance
+Experience: 800
+Strength: 7
+Intelligence: 5
+Stamina: 8
+Hit Points: 20
+Hunger: 5
+Sleepiness: 5
+
+
+After some operations:
+
+ID: 1
+Name: John Cena
+Experience: 1000
+Strength: 6
+Intelligence: 6
+Stamina: 8
+Hit Points: 20
+Hunger: 10
+Sleepiness: 10
+
+ID: 2
+Name: Lancelot
+Experience: 800
+Strength: 10
+Intelligence: 5
+Stamina: 5
+Hit Points: 20
+Hunger: 5
+Sleepiness: 5
+
+Error was caught: java.lang.NullPointerException
